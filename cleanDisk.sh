@@ -67,7 +67,6 @@ if [[ -n "$rek" ]]; then
         echo "$find"
             if [[ $answer = "s"  || $answer = "S" ]]; then 
                 rm -rf "$file"
-                #if logfill is given then print to it otherwise create a file called logfil.txt and print to it
                 if [[ -n $logfill ]]; then 
                     echo "$(date) Slettes $file "  >> $logfill
                 else 
