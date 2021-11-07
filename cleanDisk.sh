@@ -67,12 +67,32 @@ if [[ -n "$rek" ]]; then
         echo "$find"
             if [[ $answer = "s"  || $answer = "S" ]]; then 
                 rm -rf "$file"
-                echo "$(date) Slettes $file " >> "$logfill"
-            elif [[ $answer = "k"  || $answer = "K" ]]; then 
+                #if logfill is given then print to it otherwise create a file called logfil.txt and print to it
+                if [[ -n $logfill ]]; then 
+                    echo "$(date) Slettes $file "  >> $logfill
+                else 
+                     echo "$(date) Slettes $file " >> "logfil.txt"
+                fi
+            
+
+            elif [[ $answer = "k"  || $answer = "K" ]]; then
                 gzip "$file"
-                 echo "$(date) Komprimeres $file" >> "$logfill"
+                        if [[ -n $logfill ]]; then 
+                             echo "$(date) Komprimeres $file" >> "$logfill"
+                        else 
+                            echo "$(date) Komprimeres $file">> "logfil.txt"
+                        fi 
+                        
+                gzip "$file"
+                
             elif [[ $answer = "i" || $answer = "I" ]]; then 
-                echo "$(date) Ikke røres. $file" >> $logfill
+
+                        if [[ -n $logfill ]]; then 
+                            echo "$(date) Ikke røres. $file" >> $logfill
+                        else 
+                           echo "$(date) Ikke røres. $file" >> "logfil.txt"
+                        fi
+
                 continue 
             fi
     done
