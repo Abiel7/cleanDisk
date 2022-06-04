@@ -7,7 +7,7 @@ logfill=
 katalog='.'
 rek=
 
-#So lenge inputten ikke er null, skal den utføre kommandoene som er skrivet inn av bruker
+#So lenge input ikke er null
 while [[ -n "$1" ]]; do 
     case "$1" in 
         -s | --str) shift; storelse="$1" 
