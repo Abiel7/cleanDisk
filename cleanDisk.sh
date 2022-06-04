@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-#alle innputenesom bruker kan skrive inn
+#alle optional parametere 
 help=
 storelse=
 logfill=
